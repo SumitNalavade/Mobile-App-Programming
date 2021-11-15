@@ -1,0 +1,657 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B42EA6F227422842003B8F47 /* GuitarSounds in Resources */ = {isa = PBXBuildFile; fileRef = B42EA6F127422840003B8F47 /* GuitarSounds */; };
+		B42EA6FA2742284C003B8F47 /* D Major.wav in Resources */ = {isa = PBXBuildFile; fileRef = B42EA6F327422849003B8F47 /* D Major.wav */; };
+		B42EA6FB2742284C003B8F47 /* C Major.wav in Resources */ = {isa = PBXBuildFile; fileRef = B42EA6F427422849003B8F47 /* C Major.wav */; };
+		B42EA6FC2742284C003B8F47 /* A Major.wav in Resources */ = {isa = PBXBuildFile; fileRef = B42EA6F52742284A003B8F47 /* A Major.wav */; };
+		B42EA6FD2742284C003B8F47 /* B Major.wav in Resources */ = {isa = PBXBuildFile; fileRef = B42EA6F62742284A003B8F47 /* B Major.wav */; };
+		B42EA6FE2742284C003B8F47 /* F Major.wav in Resources */ = {isa = PBXBuildFile; fileRef = B42EA6F72742284A003B8F47 /* F Major.wav */; };
+		B42EA6FF2742284C003B8F47 /* G Major.wav in Resources */ = {isa = PBXBuildFile; fileRef = B42EA6F82742284A003B8F47 /* G Major.wav */; };
+		B42EA7002742284C003B8F47 /* E Major.wav in Resources */ = {isa = PBXBuildFile; fileRef = B42EA6F92742284C003B8F47 /* E Major.wav */; };
+		B478DD98274214D5009B0510 /* 01 Assets in Resources */ = {isa = PBXBuildFile; fileRef = B478DD97274214D2009B0510 /* 01 Assets */; };
+		B478DDA0274214DE009B0510 /* G.wav in Resources */ = {isa = PBXBuildFile; fileRef = B478DD99274214DB009B0510 /* G.wav */; };
+		B478DDA1274214DE009B0510 /* A.wav in Resources */ = {isa = PBXBuildFile; fileRef = B478DD9A274214DB009B0510 /* A.wav */; };
+		B478DDA2274214DE009B0510 /* E.wav in Resources */ = {isa = PBXBuildFile; fileRef = B478DD9B274214DC009B0510 /* E.wav */; };
+		B478DDA3274214DE009B0510 /* D.wav in Resources */ = {isa = PBXBuildFile; fileRef = B478DD9C274214DC009B0510 /* D.wav */; };
+		B478DDA4274214DE009B0510 /* C.wav in Resources */ = {isa = PBXBuildFile; fileRef = B478DD9D274214DC009B0510 /* C.wav */; };
+		B478DDA5274214DE009B0510 /* F.wav in Resources */ = {isa = PBXBuildFile; fileRef = B478DD9E274214DC009B0510 /* F.wav */; };
+		B478DDA6274214DE009B0510 /* B.wav in Resources */ = {isa = PBXBuildFile; fileRef = B478DD9F274214DC009B0510 /* B.wav */; };
+		B478DDAC27421BC9009B0510 /* GuitarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B478DDAB27421BC9009B0510 /* GuitarViewController.swift */; };
+		E245A222273EFC1400DC6D56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E245A221273EFC1400DC6D56 /* AppDelegate.swift */; };
+		E245A224273EFC1400DC6D56 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E245A223273EFC1400DC6D56 /* SceneDelegate.swift */; };
+		E245A226273EFC1400DC6D56 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E245A225273EFC1400DC6D56 /* ViewController.swift */; };
+		E245A229273EFC1400DC6D56 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E245A227273EFC1400DC6D56 /* Main.storyboard */; };
+		E245A22B273EFC1500DC6D56 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E245A22A273EFC1500DC6D56 /* Assets.xcassets */; };
+		E245A22E273EFC1500DC6D56 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E245A22C273EFC1500DC6D56 /* LaunchScreen.storyboard */; };
+		E245A239273EFC1500DC6D56 /* XylophoneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E245A238273EFC1500DC6D56 /* XylophoneTests.swift */; };
+		E245A244273EFC1500DC6D56 /* XylophoneUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E245A243273EFC1500DC6D56 /* XylophoneUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E245A235273EFC1500DC6D56 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E245A216273EFC1400DC6D56 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E245A21D273EFC1400DC6D56;
+			remoteInfo = Xylophone;
+		};
+		E245A240273EFC1500DC6D56 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E245A216273EFC1400DC6D56 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E245A21D273EFC1400DC6D56;
+			remoteInfo = Xylophone;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		B42EA6F127422840003B8F47 /* GuitarSounds */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = GuitarSounds; sourceTree = SOURCE_ROOT; };
+		B42EA6F327422849003B8F47 /* D Major.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = "D Major.wav"; path = "GuitarSounds/D Major.wav"; sourceTree = SOURCE_ROOT; };
+		B42EA6F427422849003B8F47 /* C Major.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = "C Major.wav"; path = "GuitarSounds/C Major.wav"; sourceTree = SOURCE_ROOT; };
+		B42EA6F52742284A003B8F47 /* A Major.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = "A Major.wav"; path = "GuitarSounds/A Major.wav"; sourceTree = SOURCE_ROOT; };
+		B42EA6F62742284A003B8F47 /* B Major.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = "B Major.wav"; path = "GuitarSounds/B Major.wav"; sourceTree = SOURCE_ROOT; };
+		B42EA6F72742284A003B8F47 /* F Major.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = "F Major.wav"; path = "GuitarSounds/F Major.wav"; sourceTree = SOURCE_ROOT; };
+		B42EA6F82742284A003B8F47 /* G Major.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = "G Major.wav"; path = "GuitarSounds/G Major.wav"; sourceTree = SOURCE_ROOT; };
+		B42EA6F92742284C003B8F47 /* E Major.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = "E Major.wav"; path = "GuitarSounds/E Major.wav"; sourceTree = SOURCE_ROOT; };
+		B478DD97274214D2009B0510 /* 01 Assets */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "01 Assets"; sourceTree = SOURCE_ROOT; };
+		B478DD99274214DB009B0510 /* G.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = G.wav; path = "01 Assets/G.wav"; sourceTree = SOURCE_ROOT; };
+		B478DD9A274214DB009B0510 /* A.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = A.wav; path = "01 Assets/A.wav"; sourceTree = SOURCE_ROOT; };
+		B478DD9B274214DC009B0510 /* E.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = E.wav; path = "01 Assets/E.wav"; sourceTree = SOURCE_ROOT; };
+		B478DD9C274214DC009B0510 /* D.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = D.wav; path = "01 Assets/D.wav"; sourceTree = SOURCE_ROOT; };
+		B478DD9D274214DC009B0510 /* C.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = C.wav; path = "01 Assets/C.wav"; sourceTree = SOURCE_ROOT; };
+		B478DD9E274214DC009B0510 /* F.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = F.wav; path = "01 Assets/F.wav"; sourceTree = SOURCE_ROOT; };
+		B478DD9F274214DC009B0510 /* B.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = B.wav; path = "01 Assets/B.wav"; sourceTree = SOURCE_ROOT; };
+		B478DDAB27421BC9009B0510 /* GuitarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuitarViewController.swift; sourceTree = "<group>"; };
+		E245A21E273EFC1400DC6D56 /* Xylophone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Xylophone.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E245A221273EFC1400DC6D56 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E245A223273EFC1400DC6D56 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		E245A225273EFC1400DC6D56 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E245A228273EFC1400DC6D56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E245A22A273EFC1500DC6D56 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E245A22D273EFC1500DC6D56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E245A22F273EFC1500DC6D56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E245A234273EFC1500DC6D56 /* XylophoneTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XylophoneTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E245A238273EFC1500DC6D56 /* XylophoneTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XylophoneTests.swift; sourceTree = "<group>"; };
+		E245A23A273EFC1500DC6D56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E245A23F273EFC1500DC6D56 /* XylophoneUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XylophoneUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E245A243273EFC1500DC6D56 /* XylophoneUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XylophoneUITests.swift; sourceTree = "<group>"; };
+		E245A245273EFC1500DC6D56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E245A21B273EFC1400DC6D56 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E245A231273EFC1500DC6D56 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E245A23C273EFC1500DC6D56 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E245A215273EFC1400DC6D56 = {
+			isa = PBXGroup;
+			children = (
+				E245A220273EFC1400DC6D56 /* Xylophone */,
+				E245A237273EFC1500DC6D56 /* XylophoneTests */,
+				E245A242273EFC1500DC6D56 /* XylophoneUITests */,
+				E245A21F273EFC1400DC6D56 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E245A21F273EFC1400DC6D56 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E245A21E273EFC1400DC6D56 /* Xylophone.app */,
+				E245A234273EFC1500DC6D56 /* XylophoneTests.xctest */,
+				E245A23F273EFC1500DC6D56 /* XylophoneUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E245A220273EFC1400DC6D56 /* Xylophone */ = {
+			isa = PBXGroup;
+			children = (
+				B478DDAB27421BC9009B0510 /* GuitarViewController.swift */,
+				B478DD9A274214DB009B0510 /* A.wav */,
+				B478DD9F274214DC009B0510 /* B.wav */,
+				B478DD9D274214DC009B0510 /* C.wav */,
+				B478DD9C274214DC009B0510 /* D.wav */,
+				B478DD9B274214DC009B0510 /* E.wav */,
+				B478DD9E274214DC009B0510 /* F.wav */,
+				B478DD99274214DB009B0510 /* G.wav */,
+				B42EA6F52742284A003B8F47 /* A Major.wav */,
+				B42EA6F62742284A003B8F47 /* B Major.wav */,
+				B42EA6F427422849003B8F47 /* C Major.wav */,
+				B42EA6F327422849003B8F47 /* D Major.wav */,
+				B42EA6F92742284C003B8F47 /* E Major.wav */,
+				B42EA6F72742284A003B8F47 /* F Major.wav */,
+				B42EA6F82742284A003B8F47 /* G Major.wav */,
+				E245A221273EFC1400DC6D56 /* AppDelegate.swift */,
+				E245A223273EFC1400DC6D56 /* SceneDelegate.swift */,
+				E245A225273EFC1400DC6D56 /* ViewController.swift */,
+				E245A227273EFC1400DC6D56 /* Main.storyboard */,
+				E245A22A273EFC1500DC6D56 /* Assets.xcassets */,
+				B42EA6F127422840003B8F47 /* GuitarSounds */,
+				B478DD97274214D2009B0510 /* 01 Assets */,
+				E245A22C273EFC1500DC6D56 /* LaunchScreen.storyboard */,
+				E245A22F273EFC1500DC6D56 /* Info.plist */,
+			);
+			path = Xylophone;
+			sourceTree = "<group>";
+		};
+		E245A237273EFC1500DC6D56 /* XylophoneTests */ = {
+			isa = PBXGroup;
+			children = (
+				E245A238273EFC1500DC6D56 /* XylophoneTests.swift */,
+				E245A23A273EFC1500DC6D56 /* Info.plist */,
+			);
+			path = XylophoneTests;
+			sourceTree = "<group>";
+		};
+		E245A242273EFC1500DC6D56 /* XylophoneUITests */ = {
+			isa = PBXGroup;
+			children = (
+				E245A243273EFC1500DC6D56 /* XylophoneUITests.swift */,
+				E245A245273EFC1500DC6D56 /* Info.plist */,
+			);
+			path = XylophoneUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E245A21D273EFC1400DC6D56 /* Xylophone */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E245A248273EFC1500DC6D56 /* Build configuration list for PBXNativeTarget "Xylophone" */;
+			buildPhases = (
+				E245A21A273EFC1400DC6D56 /* Sources */,
+				E245A21B273EFC1400DC6D56 /* Frameworks */,
+				E245A21C273EFC1400DC6D56 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Xylophone;
+			productName = Xylophone;
+			productReference = E245A21E273EFC1400DC6D56 /* Xylophone.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E245A233273EFC1500DC6D56 /* XylophoneTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E245A24B273EFC1500DC6D56 /* Build configuration list for PBXNativeTarget "XylophoneTests" */;
+			buildPhases = (
+				E245A230273EFC1500DC6D56 /* Sources */,
+				E245A231273EFC1500DC6D56 /* Frameworks */,
+				E245A232273EFC1500DC6D56 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E245A236273EFC1500DC6D56 /* PBXTargetDependency */,
+			);
+			name = XylophoneTests;
+			productName = XylophoneTests;
+			productReference = E245A234273EFC1500DC6D56 /* XylophoneTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		E245A23E273EFC1500DC6D56 /* XylophoneUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E245A24E273EFC1500DC6D56 /* Build configuration list for PBXNativeTarget "XylophoneUITests" */;
+			buildPhases = (
+				E245A23B273EFC1500DC6D56 /* Sources */,
+				E245A23C273EFC1500DC6D56 /* Frameworks */,
+				E245A23D273EFC1500DC6D56 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E245A241273EFC1500DC6D56 /* PBXTargetDependency */,
+			);
+			name = XylophoneUITests;
+			productName = XylophoneUITests;
+			productReference = E245A23F273EFC1500DC6D56 /* XylophoneUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E245A216273EFC1400DC6D56 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1130;
+				LastUpgradeCheck = 1130;
+				ORGANIZATIONNAME = "Nalavade, Sumit S";
+				TargetAttributes = {
+					E245A21D273EFC1400DC6D56 = {
+						CreatedOnToolsVersion = 11.3;
+					};
+					E245A233273EFC1500DC6D56 = {
+						CreatedOnToolsVersion = 11.3;
+						TestTargetID = E245A21D273EFC1400DC6D56;
+					};
+					E245A23E273EFC1500DC6D56 = {
+						CreatedOnToolsVersion = 11.3;
+						TestTargetID = E245A21D273EFC1400DC6D56;
+					};
+				};
+			};
+			buildConfigurationList = E245A219273EFC1400DC6D56 /* Build configuration list for PBXProject "Xylophone" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E245A215273EFC1400DC6D56;
+			productRefGroup = E245A21F273EFC1400DC6D56 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E245A21D273EFC1400DC6D56 /* Xylophone */,
+				E245A233273EFC1500DC6D56 /* XylophoneTests */,
+				E245A23E273EFC1500DC6D56 /* XylophoneUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E245A21C273EFC1400DC6D56 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B478DDA6274214DE009B0510 /* B.wav in Resources */,
+				B42EA6FF2742284C003B8F47 /* G Major.wav in Resources */,
+				B42EA6FC2742284C003B8F47 /* A Major.wav in Resources */,
+				B42EA6FD2742284C003B8F47 /* B Major.wav in Resources */,
+				B478DDA1274214DE009B0510 /* A.wav in Resources */,
+				E245A22E273EFC1500DC6D56 /* LaunchScreen.storyboard in Resources */,
+				B478DDA0274214DE009B0510 /* G.wav in Resources */,
+				B42EA6F227422842003B8F47 /* GuitarSounds in Resources */,
+				B42EA6FB2742284C003B8F47 /* C Major.wav in Resources */,
+				B478DDA5274214DE009B0510 /* F.wav in Resources */,
+				B42EA7002742284C003B8F47 /* E Major.wav in Resources */,
+				B478DDA4274214DE009B0510 /* C.wav in Resources */,
+				B42EA6FA2742284C003B8F47 /* D Major.wav in Resources */,
+				B478DD98274214D5009B0510 /* 01 Assets in Resources */,
+				E245A22B273EFC1500DC6D56 /* Assets.xcassets in Resources */,
+				B478DDA3274214DE009B0510 /* D.wav in Resources */,
+				B478DDA2274214DE009B0510 /* E.wav in Resources */,
+				E245A229273EFC1400DC6D56 /* Main.storyboard in Resources */,
+				B42EA6FE2742284C003B8F47 /* F Major.wav in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E245A232273EFC1500DC6D56 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E245A23D273EFC1500DC6D56 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E245A21A273EFC1400DC6D56 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B478DDAC27421BC9009B0510 /* GuitarViewController.swift in Sources */,
+				E245A226273EFC1400DC6D56 /* ViewController.swift in Sources */,
+				E245A222273EFC1400DC6D56 /* AppDelegate.swift in Sources */,
+				E245A224273EFC1400DC6D56 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E245A230273EFC1500DC6D56 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E245A239273EFC1500DC6D56 /* XylophoneTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E245A23B273EFC1500DC6D56 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E245A244273EFC1500DC6D56 /* XylophoneUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E245A236273EFC1500DC6D56 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E245A21D273EFC1400DC6D56 /* Xylophone */;
+			targetProxy = E245A235273EFC1500DC6D56 /* PBXContainerItemProxy */;
+		};
+		E245A241273EFC1500DC6D56 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E245A21D273EFC1400DC6D56 /* Xylophone */;
+			targetProxy = E245A240273EFC1500DC6D56 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E245A227273EFC1400DC6D56 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E245A228273EFC1400DC6D56 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		E245A22C273EFC1500DC6D56 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E245A22D273EFC1500DC6D56 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E245A246273EFC1500DC6D56 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		E245A247273EFC1500DC6D56 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E245A249273EFC1500DC6D56 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = Xylophone/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.nalavade.Xylophone;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E245A24A273EFC1500DC6D56 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = Xylophone/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.nalavade.Xylophone;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		E245A24C273EFC1500DC6D56 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = XylophoneTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.nalavade.XylophoneTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Xylophone.app/Xylophone";
+			};
+			name = Debug;
+		};
+		E245A24D273EFC1500DC6D56 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = XylophoneTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.nalavade.XylophoneTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Xylophone.app/Xylophone";
+			};
+			name = Release;
+		};
+		E245A24F273EFC1500DC6D56 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = XylophoneUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.nalavade.XylophoneUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Xylophone;
+			};
+			name = Debug;
+		};
+		E245A250273EFC1500DC6D56 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = XylophoneUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.nalavade.XylophoneUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Xylophone;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E245A219273EFC1400DC6D56 /* Build configuration list for PBXProject "Xylophone" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E245A246273EFC1500DC6D56 /* Debug */,
+				E245A247273EFC1500DC6D56 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E245A248273EFC1500DC6D56 /* Build configuration list for PBXNativeTarget "Xylophone" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E245A249273EFC1500DC6D56 /* Debug */,
+				E245A24A273EFC1500DC6D56 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E245A24B273EFC1500DC6D56 /* Build configuration list for PBXNativeTarget "XylophoneTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E245A24C273EFC1500DC6D56 /* Debug */,
+				E245A24D273EFC1500DC6D56 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E245A24E273EFC1500DC6D56 /* Build configuration list for PBXNativeTarget "XylophoneUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E245A24F273EFC1500DC6D56 /* Debug */,
+				E245A250273EFC1500DC6D56 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E245A216273EFC1400DC6D56 /* Project object */;
+}
