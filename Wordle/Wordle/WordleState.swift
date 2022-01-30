@@ -1,16 +1,16 @@
 import Foundation
 
-class Game: CustomStringConvertible {
-    let correctWord = "Test"
+class Game: CustomStringConvertible {    
+    let correctWord = "Testy"
     
     var remainingAttempts: Int = 6
     
-    var row1: [String] = ["", "", "", "", ""]
-    var row2: [String] = ["", "", "", "", ""]
-    var row3: [String] = ["", "", "", "", ""]
-    var row4: [String] = ["", "", "", "", ""]
-    var row5: [String] = ["", "", "", "", ""]
-    var row6: [String] = ["", "", "", "", ""]
+    var row1: [Letter] = [Letter(letter: "", isCorrect: false), Letter(letter: "", isCorrect: false), Letter(letter: "", isCorrect: false), Letter(letter: "", isCorrect: false), Letter(letter: "", isCorrect: false)]
+    var row2: [Letter] = [Letter(letter: "", isCorrect: false), Letter(letter: "", isCorrect: false), Letter(letter: "", isCorrect: false), Letter(letter: "", isCorrect: false), Letter(letter: "", isCorrect: false)]
+    var row3: [Letter] = [Letter(letter: "", isCorrect: false), Letter(letter: "", isCorrect: false), Letter(letter: "", isCorrect: false), Letter(letter: "", isCorrect: false), Letter(letter: "", isCorrect: false)]
+    var row4: [Letter] = [Letter(letter: "", isCorrect: false), Letter(letter: "", isCorrect: false), Letter(letter: "", isCorrect: false), Letter(letter: "", isCorrect: false), Letter(letter: "", isCorrect: false)]
+    var row5: [Letter] = [Letter(letter: "", isCorrect: false), Letter(letter: "", isCorrect: false), Letter(letter: "", isCorrect: false), Letter(letter: "", isCorrect: false), Letter(letter: "", isCorrect: false)]
+    var row6: [Letter] = [Letter(letter: "", isCorrect: false), Letter(letter: "", isCorrect: false), Letter(letter: "", isCorrect: false), Letter(letter: "", isCorrect: false), Letter(letter: "", isCorrect: false)]
     
     var description: String {
         return """
@@ -52,16 +52,27 @@ class Game: CustomStringConvertible {
         }
     }
     
-    private func stringSplit(word: String) -> [String] {
-        var splitStringArray: [String] = []
-        
+    private func stringSplit(word: String) -> [Letter] {
+        var splitStringArray: [Letter] = []
+                
         for (index, letter) in word.enumerated() {
             guard index < 5 else { break }
+            var correct: Bool = false
             
-            splitStringArray.append(String(letter))
+            if(self.correctWord[index] == letter) {
+                correct = true
+            }
+                        
+            splitStringArray.append(Letter(letter: String(letter), isCorrect: correct))
         }
         
         return splitStringArray
     }
     
+}
+
+extension StringProtocol {
+    subscript(offset: Int) -> Character {
+        self[index(startIndex, offsetBy: offset)]
+    }
 }

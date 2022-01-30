@@ -16,6 +16,7 @@
 		B416D92627A6587F005D2E7C /* WordleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B416D92527A6587F005D2E7C /* WordleTests.swift */; };
 		B416D93127A6587F005D2E7C /* WordleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B416D93027A6587F005D2E7C /* WordleUITests.swift */; };
 		B416D93F27A65DBB005D2E7C /* WordleState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B416D93E27A65DBB005D2E7C /* WordleState.swift */; };
+		B416D94527A6716E005D2E7C /* letter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B416D94427A6716E005D2E7C /* letter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		B416D93027A6587F005D2E7C /* WordleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordleUITests.swift; sourceTree = "<group>"; };
 		B416D93227A6587F005D2E7C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B416D93E27A65DBB005D2E7C /* WordleState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordleState.swift; sourceTree = "<group>"; };
+		B416D94427A6716E005D2E7C /* letter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = letter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 				B416D91727A6587F005D2E7C /* Assets.xcassets */,
 				B416D91927A6587F005D2E7C /* LaunchScreen.storyboard */,
 				B416D91C27A6587F005D2E7C /* Info.plist */,
+				B416D94427A6716E005D2E7C /* letter.swift */,
 			);
 			path = Wordle;
 			sourceTree = "<group>";
@@ -265,6 +268,7 @@
 				B416D91327A6587D005D2E7C /* ViewController.swift in Sources */,
 				B416D90F27A6587D005D2E7C /* AppDelegate.swift in Sources */,
 				B416D93F27A65DBB005D2E7C /* WordleState.swift in Sources */,
+				B416D94527A6716E005D2E7C /* letter.swift in Sources */,
 				B416D91127A6587D005D2E7C /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
