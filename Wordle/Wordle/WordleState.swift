@@ -1,16 +1,16 @@
 import Foundation
 
 class Game: CustomStringConvertible {    
-    let correctWord = "Testy"
+    var correctWord : String? = nil
     
     var remainingAttempts: Int = 6
     
-    var row1: [Letter] = [Letter(letter: "", isCorrect: false), Letter(letter: "", isCorrect: false), Letter(letter: "", isCorrect: false), Letter(letter: "", isCorrect: false), Letter(letter: "", isCorrect: false)]
-    var row2: [Letter] = [Letter(letter: "", isCorrect: false), Letter(letter: "", isCorrect: false), Letter(letter: "", isCorrect: false), Letter(letter: "", isCorrect: false), Letter(letter: "", isCorrect: false)]
-    var row3: [Letter] = [Letter(letter: "", isCorrect: false), Letter(letter: "", isCorrect: false), Letter(letter: "", isCorrect: false), Letter(letter: "", isCorrect: false), Letter(letter: "", isCorrect: false)]
-    var row4: [Letter] = [Letter(letter: "", isCorrect: false), Letter(letter: "", isCorrect: false), Letter(letter: "", isCorrect: false), Letter(letter: "", isCorrect: false), Letter(letter: "", isCorrect: false)]
-    var row5: [Letter] = [Letter(letter: "", isCorrect: false), Letter(letter: "", isCorrect: false), Letter(letter: "", isCorrect: false), Letter(letter: "", isCorrect: false), Letter(letter: "", isCorrect: false)]
-    var row6: [Letter] = [Letter(letter: "", isCorrect: false), Letter(letter: "", isCorrect: false), Letter(letter: "", isCorrect: false), Letter(letter: "", isCorrect: false), Letter(letter: "", isCorrect: false)]
+    var row1: [Letter] = [Letter(), Letter(), Letter(), Letter(), Letter()]
+    var row2: [Letter] = [Letter(), Letter(), Letter(), Letter(), Letter()]
+    var row3: [Letter] = [Letter(), Letter(), Letter(), Letter(), Letter()]
+    var row4: [Letter] = [Letter(), Letter(), Letter(), Letter(), Letter()]
+    var row5: [Letter] = [Letter(), Letter(), Letter(), Letter(), Letter()]
+    var row6: [Letter] = [Letter(), Letter(), Letter(), Letter(), Letter()]
     
     var description: String {
         return """
@@ -26,7 +26,9 @@ class Game: CustomStringConvertible {
     }
     
     init() {
-        
+        getOfficialWord { (word) in
+            self.correctWord = word
+        }
     }
     
     func addWord(word: String) {
@@ -48,7 +50,7 @@ class Game: CustomStringConvertible {
         case 0:
             self.row6 = self.stringSplit(word: word)
         default:
-            print("gdfgsdf")
+            print("Add Word Error")
         }
     }
     
@@ -58,21 +60,38 @@ class Game: CustomStringConvertible {
         for (index, letter) in word.enumerated() {
             guard index < 5 else { break }
             var correct: Bool = false
+            var wordContainsLetter : Bool = false
             
-            if(self.correctWord[index] == letter) {
+            if(self.correctWord![index] == letter) {
                 correct = true
+            } else if(self.correctWord!.contains(letter)) {
+                wordContainsLetter = true
             }
                         
-            splitStringArray.append(Letter(letter: String(letter), isCorrect: correct))
+            splitStringArray.append(Letter(letter: String(letter), isCorrect: correct, inWord: wordContainsLetter))
         }
         
         return splitStringArray
     }
     
-}
+    private func getOfficialWord(_ completion: @escaping (String) -> ()) {
+        
+        let urlPath = "https://frontpage-exercises-chart-fairfield.trycloudflare.com/currentword"
 
-extension StringProtocol {
-    subscript(offset: Int) -> Character {
-        self[index(startIndex, offsetBy: offset)]
+        guard let url = URL(string: urlPath) else { return }
+
+        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+            guard let data = data else { return }
+            do {
+                if let jsonResult = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers) as? NSDictionary {
+                    let results = jsonResult["word"] as! String
+                    completion(results.lowercased())
+                }
+            } catch {
+                
+            }
+        }
+        task.resume()
     }
+    
 }

@@ -17,7 +17,8 @@ class ViewController: UIViewController {
     @IBOutlet var row5Labels: [UILabel]!
     @IBOutlet var row6Labels: [UILabel]!
     
-    let green = UIColor(red: 0.41, green: 0.66, blue: 0.39, alpha: 1)
+    let customGreen = UIColor(red: 0.41, green: 0.66, blue: 0.39, alpha: 1)
+    let customYellow = UIColor(red: 0.78, green: 0.71, blue: 0.35, alpha: 1)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,50 +31,45 @@ class ViewController: UIViewController {
         
         self.game.addWord(word: submittedWord)
         self.populateRows()
-        print(game)
+        sender.text = ""
+        
+        if(submittedWord == game.correctWord) {
+            self.showAlert(message: "Correct!")
+        } else if(game.remainingAttempts <= 0) {
+            self.showAlert(message: """
+0 Attempts remaining
+Correct Word: \(game.correctWord)
+""")
+        }
     }
     
     func populateRows() {
-        for (index, letter) in game.row1.enumerated() {
-            row1Labels[index].text = letter.letter
-            if(letter.isCorrect) {
-                row1Labels[index].backgroundColor = self.green
+        let UILabels = [row1Labels, row2Labels, row3Labels, row4Labels, row5Labels, row6Labels]
+        let gameRows = [game.row1, game.row2, game.row3, game.row4, game.row5, game.row6]
+        
+        for (gameRowIndex, gameRow) in gameRows.enumerated() {
+            for (index, letter) in gameRow.enumerated() {
+                let label = UILabels[gameRowIndex]![index]
+                                
+                if(label.text == letter.letter) { continue }
+                
+                if(letter.isCorrect) {
+                    label.backgroundColor = customGreen
+                }
+                
+                UIView.transition(with: label, duration: 0.5, options: .transitionFlipFromTop, animations: {
+                    label.text = letter.letter; if(letter.isCorrect) {
+                        label.backgroundColor = self.customGreen
+                    } else if(letter.inWord) { label.backgroundColor = self.customYellow }
+                }, completion: nil)
             }
         }
-        
-        for (index, letter) in game.row2.enumerated() {
-            row2Labels[index].text = letter.letter
-            if(letter.isCorrect) {
-                row2Labels[index].backgroundColor = self.green
-            }
-        }
-        
-        for (index, letter) in game.row3.enumerated() {
-            row3Labels[index].text = letter.letter
-            if(letter.isCorrect) {
-                row3Labels[index].backgroundColor = self.green
-            }
-        }
-        
-        for (index, letter) in game.row4.enumerated() {
-            row4Labels[index].text = letter.letter
-            if(letter.isCorrect) {
-                row4Labels[index].backgroundColor = self.green
-            }
-        }
-        
-        for (index, letter) in game.row5.enumerated() {
-            row5Labels[index].text = letter.letter
-            if(letter.isCorrect) {
-                row5Labels[index].backgroundColor = self.green
-            }
-        }
-        
-        for (index, letter) in game.row6.enumerated() {
-            row6Labels[index].text = letter.letter
-            if(letter.isCorrect) {
-                row6Labels[index].backgroundColor = self.green
-            }
+    }
+    
+    func showAlert(message: String) {
+        DispatchQueue.main.async {
+            let alert = UIAlertController(title: "Game Over", message: message, preferredStyle: UIAlertController.Style.alert)
+            self.present(alert, animated: true, completion: nil)
         }
     }
 }

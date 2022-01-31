@@ -9,6 +9,7 @@
 import Foundation
 
 struct Letter {
-    var letter: String
-    var isCorrect: Bool
+    var letter: String = ""
+    var isCorrect: Bool = false
+    var inWord : Bool = false
 }
