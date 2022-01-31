@@ -10,12 +10,16 @@ import UIKit
 
 class ViewController: UIViewController {
     var game = Game()
+    let correctWord: String? = nil
+    
     @IBOutlet var row1Labels: [UILabel]!
     @IBOutlet var row2Labels: [UILabel]!
     @IBOutlet var row3Labels: [UILabel]!
     @IBOutlet var row4Labels: [UILabel]!
     @IBOutlet var row5Labels: [UILabel]!
     @IBOutlet var row6Labels: [UILabel]!
+    
+    @IBOutlet weak var hintsLabel: UILabel!
     
     let customGreen = UIColor(red: 0.41, green: 0.66, blue: 0.39, alpha: 1)
     let customYellow = UIColor(red: 0.78, green: 0.71, blue: 0.35, alpha: 1)
@@ -24,11 +28,12 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         self.populateRows()
+        self.updateHintsLabel()
     }
 
     @IBAction func wordTextFieldSubmit(_ sender: UITextField) {
-        let submittedWord = sender.text!
-        
+        let submittedWord = sender.text!.lowercased()
+                
         self.game.addWord(word: submittedWord)
         self.populateRows()
         sender.text = ""
@@ -38,7 +43,7 @@ class ViewController: UIViewController {
         } else if(game.remainingAttempts <= 0) {
             self.showAlert(message: """
 0 Attempts remaining
-Correct Word: \(game.correctWord)
+Correct Word: \(game.correctWord!)
 """)
         }
     }
@@ -63,6 +68,25 @@ Correct Word: \(game.correctWord)
                     } else if(letter.inWord) { label.backgroundColor = self.customYellow }
                 }, completion: nil)
             }
+        }
+    }
+    
+    func updateHintsLabel() {
+        let remainingHints = game.remainingHints
+        
+        self.hintsLabel.text = "Hints: \(remainingHints)"
+    }
+    
+    @IBAction func useHintButtonTapped(_ sender: Any) {
+        guard game.remainingHints > 0 else { return }
+        
+        game.remainingHints -= 1
+        self.updateHintsLabel()
+    
+        DispatchQueue.main.async {
+            let alert = UIAlertController(title: "Definition", message: self.game.hint!, preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
         }
     }
     

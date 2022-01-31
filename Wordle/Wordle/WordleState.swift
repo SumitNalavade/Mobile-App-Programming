@@ -2,8 +2,10 @@ import Foundation
 
 class Game: CustomStringConvertible {    
     var correctWord : String? = nil
+    var hint: String? = nil
     
     var remainingAttempts: Int = 6
+    var remainingHints : Int = 1
     
     var row1: [Letter] = [Letter(), Letter(), Letter(), Letter(), Letter()]
     var row2: [Letter] = [Letter(), Letter(), Letter(), Letter(), Letter()]
@@ -28,6 +30,9 @@ class Game: CustomStringConvertible {
     init() {
         getOfficialWord { (word) in
             self.correctWord = word
+            self.getWordDefinition({ (definition) in
+                self.hint = definition
+            }, word: word)
         }
     }
     
@@ -93,5 +98,34 @@ class Game: CustomStringConvertible {
         }
         task.resume()
     }
+    
+    private func getWordDefinition(_ completion: @escaping (String) -> (), word: String) {
+        let urlString = "https://owlbot.info/api/v4/dictionary/\(word)"
+        let session = URLSession.shared
+        let url = URL(string: urlString)!
+        var request = URLRequest(url: url)
+
+        request.addValue("Token d933fb9d92440b3aa667ef2b4b02079fda4500c2", forHTTPHeaderField: "Authorization")
+
+        session.dataTask(with: request, completionHandler: { (data: Data?, response: URLResponse?, error: Error?) in
+            
+            if let data = data
+            {
+                do{
+                    let json = try JSONSerialization.jsonObject(with: data, options: []) as? NSDictionary
+                    
+                    if(json?["definitions"] == nil) {
+                        completion("No definition avalible")
+                        return
+                    }
+                    
+                    completion(((json!["definitions"] as! NSArray)[0] as! NSDictionary)["definition"] as! String)
+                } catch {
+                    print(error)
+                }
+            }
+        }).resume()
+    }
+    
     
 }
