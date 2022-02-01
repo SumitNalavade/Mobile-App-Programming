@@ -8,6 +8,8 @@
 
 import Foundation
 
+//Allow a string to use subscripts easier
+//Example: "Hello World"[0] = "H"
 extension StringProtocol {
     subscript(offset: Int) -> Character {
         self[index(startIndex, offsetBy: offset)]

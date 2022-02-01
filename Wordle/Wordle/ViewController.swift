@@ -9,9 +9,11 @@
 import UIKit
 
 class ViewController: UIViewController {
-    var game = Game()
-    let correctWord: String? = nil
     
+    //Initialize the game
+    var game = Game()
+    
+    //Array of UI labels of each on screen row
     @IBOutlet var row1Labels: [UILabel]!
     @IBOutlet var row2Labels: [UILabel]!
     @IBOutlet var row3Labels: [UILabel]!
@@ -31,6 +33,9 @@ class ViewController: UIViewController {
         self.updateHintsLabel()
     }
 
+    //Take the word submitted in the text field and call the game.addWord() function
+    //Call the self.populateRows() function to redraw the on screen labels
+    //If the submitted word is the same as game.correctWord, show an alert telling the user that they won
     @IBAction func wordTextFieldSubmit(_ sender: UITextField) {
         let submittedWord = sender.text!.lowercased()
                 
@@ -48,6 +53,10 @@ Correct Word: \(game.correctWord!)
         }
     }
     
+    //Create two arrays. One representing the UILables and one representing the game state
+    //Iterate through the game state and match each UILabel to show the correct letter as defined in the game state
+    //If the Letter.isCorrect property is true, change the UILabel background color to green or else if the Letter.inWord property is true, change the background color to yellow
+    //Use a transition to flip the UILabel if there is a change to it
     func populateRows() {
         let UILabels = [row1Labels, row2Labels, row3Labels, row4Labels, row5Labels, row6Labels]
         let gameRows = [game.row1, game.row2, game.row3, game.row4, game.row5, game.row6]
@@ -71,12 +80,15 @@ Correct Word: \(game.correctWord!)
         }
     }
     
+    //Update the hints label with the game.remainingHints property
     func updateHintsLabel() {
         let remainingHints = game.remainingHints
         
         self.hintsLabel.text = "Hints: \(remainingHints)"
     }
     
+    //Show an alert when the hint button is tapped
+    //Guard against the remaining hints being 0
     @IBAction func useHintButtonTapped(_ sender: Any) {
         guard game.remainingHints > 0 else { return }
         
@@ -90,6 +102,7 @@ Correct Word: \(game.correctWord!)
         }
     }
     
+    //Show an alert with a message of "Won" or loss when the user either enters a correct word or runs out of attempts
     func showAlert(message: String) {
         DispatchQueue.main.async {
             let alert = UIAlertController(title: "Game Over", message: message, preferredStyle: UIAlertController.Style.alert)

@@ -1,12 +1,20 @@
 import Foundation
 
-class Game: CustomStringConvertible {    
+//Class Game conforms to CustomStringConvertable protocol to print a description of itself when the print() function is called
+class Game: CustomStringConvertible {
+    
     var correctWord : String? = nil
     var hint: String? = nil
     
+    //A player starts out with 6 attempts and for each word guessed, remainingAttempts decrements by 1
     var remainingAttempts: Int = 6
+    
+    //A player starts out with 1 hint and when a hint is used, decrement hints by 1
     var remainingHints : Int = 1
     
+    //Create 6 rows of type Letter in which each contain 5 letter objects
+    //A complete row represents a full word
+    //A word can only be max 5 letters
     var row1: [Letter] = [Letter(), Letter(), Letter(), Letter(), Letter()]
     var row2: [Letter] = [Letter(), Letter(), Letter(), Letter(), Letter()]
     var row3: [Letter] = [Letter(), Letter(), Letter(), Letter(), Letter()]
@@ -27,6 +35,7 @@ class Game: CustomStringConvertible {
 """
     }
     
+    //Pull the official word and the definition of the word when the Game is initialized
     init() {
         getOfficialWord { (word) in
             self.correctWord = word
@@ -36,7 +45,9 @@ class Game: CustomStringConvertible {
         }
     }
     
-    func addWord(word: String) {
+    //Take in a complete word and break it down into 5 seperate Letter objects and add it to the Game row
+    //Guard against remaining attempts being less than or equal to 0
+    public func addWord(word: String) {
         
         guard remainingAttempts > 0 else { return }
             remainingAttempts -= 1
@@ -59,6 +70,8 @@ class Game: CustomStringConvertible {
         }
     }
     
+    //Take in a full word and return an array of Letter objects
+    //Each 'Letter' in the word is of type Letter and has the properties isCorrect if the letter in the correct index and inWord if the letter is supposed to exist in the word
     private func stringSplit(word: String) -> [Letter] {
         var splitStringArray: [Letter] = []
                 
@@ -79,6 +92,7 @@ class Game: CustomStringConvertible {
         return splitStringArray
     }
     
+    //Get the official word out of Wordle by calling the custom wordle hack API
     private func getOfficialWord(_ completion: @escaping (String) -> ()) {
         
         let urlPath = "https://frontpage-exercises-chart-fairfield.trycloudflare.com/currentword"
@@ -99,6 +113,7 @@ class Game: CustomStringConvertible {
         task.resume()
     }
     
+    //Get the definition of the official word by using the Owlbot dictionary API
     private func getWordDefinition(_ completion: @escaping (String) -> (), word: String) {
         let urlString = "https://owlbot.info/api/v4/dictionary/\(word)"
         let session = URLSession.shared
