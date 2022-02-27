@@ -1,34 +1,29 @@
 import { useState } from "react";
 import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
-import { mynancePurple } from "../../utils";
+import { mynancePurple, Transaction } from "../../utils";
 
 import BalanceView from "./BalanceView";
+import AddTransaction from "../AddTransaction/AddTransaction";
 
 export default function HomeScreen() {
 
-  const [balance, setBalance] = useState(0);
-  const changeBalance = (type, changeValue) => {
-      let newBalance = balance;
-
-      if(type === "increase") { newBalance += changeValue}
-      else if(type === "decrease") { newBalance -= changeValue}
-
-      return newBalance > 0 ? setBalance(newBalance) : setBalance(0);
-  }
-
+    const [modalVisible, setModalVisible] = useState(false);
+    
     return (
       <View>
         <View style={styles.upperContainer}>
-          <BalanceView balance={balance}/>
+          <BalanceView balance={10000}/>
 
-          <TouchableOpacity style={styles.transactionButton}>
-            <Text style={{textAlign: "center", color: "white", fontSize: 15, fontWeight: "bold"}}>New Transaction</Text>
+          <TouchableOpacity onPress={() => setModalVisible(true)}  style={styles.transactionButton}>
+            <Text style={styles.headingText}>New Transaction</Text>
           </TouchableOpacity>
         </View>
 
         <View style={{height: "70%"}}>
           
         </View>
+
+        <AddTransaction modalVisible={modalVisible} setModalVisible={setModalVisible}/>
       </View>
     );
   }
@@ -54,5 +49,12 @@ const styles = StyleSheet.create({
     shadowOffset: {width: -2, height: 4},
     shadowOpacity: 0.3,
     shadowRadius: 3,
+  },
+
+  headingText: {
+    textAlign: "center",
+    color: "white",
+    fontSize: 15,
+    fontWeight: "bold"
   }
 })
