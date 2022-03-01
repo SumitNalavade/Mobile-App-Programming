@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { StyleSheet ,View, TextInput, TouchableOpacity, Text, KeyboardAvoidingView, Keyboard, TouchableWithoutFeedback } from "react-native";
+import { Picker } from "@react-native-picker/picker";
 import { mynancePurple } from "../../utils";
 
 export default function AddTransactionForm({ addTransaction }) {
     const [title, setTitle] = useState(null);
     const [amount, setAmount] = useState(null);
-    const [description, setDescription] = useState("");
+    const [category, setCategory] = useState('Unknown');
+    
     
     const validateFields = () => {
         if(!title) {
@@ -13,6 +15,9 @@ export default function AddTransactionForm({ addTransaction }) {
             return false
         } else if (!amount) {
             alert("Amount is required");
+            return false
+        } else if(category === "Unknown") {
+            alert("Select a category");
             return false
         }
 
@@ -33,13 +38,29 @@ export default function AddTransactionForm({ addTransaction }) {
                     </View>
 
                     <View style={styles.innerContainer}>
-                        <Text style={styles.headingLabel} >Description</Text>
-                        <TextInput onChangeText={(evt) => setDescription(evt.trim())} returnKeyType="done" multiline={true} style={[ styles.textInput, {height: 150, borderRadius: 15, padding: 20, textAlign: "center"}]} />
+                        <Text style={styles.headingLabel}>Category</Text>
+                        <Picker
+                            selectedValue={category}
+                            onValueChange={(value, index) => setCategory(value)}
+                            mode="dropdown" // Android only
+                            style={styles.picker} >
+                            <Picker.Item label="Please select a category" value="Unknown" />
+                            <Picker.Item label="Housing" value="Housing" />
+                            <Picker.Item label="Transportation" value="Transportation" />
+                            <Picker.Item label="Food" value="Food" />
+                            <Picker.Item label="Utilities" value="Utilities" />
+                            <Picker.Item label="Health" value="Health" />
+                            <Picker.Item label="Savings" value="Savings" />
+                            <Picker.Item label="Personal" value="Personal" />
+                            <Picker.Item label="Entertainment" value="Entertainment" />
+                            <Picker.Item label="Other" value="Other" />
+
+                        </Picker>
                     </View>
                     
                     <TouchableOpacity onPress={() => {
                         if(validateFields()) {
-                            return addTransaction(title, amount, description);
+                            return addTransaction(title, amount, category);
                         }
 
                         return
@@ -102,5 +123,10 @@ const styles = StyleSheet.create({
         flexGrow: 1,
         width: "100%",
         alignItems: "center"
-    }
+    },
+
+    picker: {
+        width: "100%",
+        padding: 10
+      },
 })

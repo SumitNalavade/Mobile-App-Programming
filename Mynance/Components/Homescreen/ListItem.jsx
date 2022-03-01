@@ -1,9 +1,42 @@
 import { Swipeable } from "react-native-gesture-handler";
-import { StyleSheet, View, Text, TouchableOpacity, FlatList, Animated } from "react-native";
+import { StyleSheet, View, Text, TouchableOpacity, Animated } from "react-native";
+import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons'; 
+
 
 export default function ListItem({ transaction, deleteTransaction }) {
-    const { title, description, amount, id } = transaction;
-    
+    const { title, category, amount, id } = transaction;
+
+    const Icon = () => {
+      switch(category) {
+        case "Housing":
+          return <Ionicons name="ios-home-outline" size={30} color="black" />
+
+        case "Transportation":
+          return <Ionicons name="ios-car-sport-outline" size={30} color="black" />
+
+        case "Food":
+          return <Ionicons name="ios-fast-food-outline" size={30} color="black" />
+
+        case "Utilities":
+          return <Ionicons name="ios-bulb-outline" size={30} color="black" />
+
+        case "Health":
+          return <Ionicons name="ios-heart-outline" size={30} color="black" />
+
+        case "Savings":
+          return <MaterialCommunityIcons name="bank-outline" size={30} color="black" />
+
+        case "Personal":
+          return <Ionicons name="person-outline" size={30} color="black" />
+
+        case "Entertainment":
+          return <Ionicons name="ios-game-controller-outline" size={30} color="black" />
+
+        case "Other":
+          return <MaterialCommunityIcons name="credit-card-multiple-outline" size={30} color="black" />
+      }
+    }
+
     const leftSwipe = (progress, dragX) => {
         const scale = dragX.interpolate({
           inputRange: [0, 100],
@@ -23,9 +56,10 @@ export default function ListItem({ transaction, deleteTransaction }) {
 
     return (
         <Swipeable renderLeftActions={leftSwipe}>
-            <View style={styles.item}>
+            <TouchableOpacity style={styles.item}>
+              <Icon />
                 <Text style={styles.title}>{title}</Text>
-            </View>
+            </TouchableOpacity>
         </Swipeable>
     )
 }
@@ -42,8 +76,12 @@ const styles = StyleSheet.create({
     },
 
     item: {
-        backgroundColor: '#f9c2ff',
-        padding: 20,
+        flexDirection: "row",
+        alignItems: "center",
+
+        backgroundColor: 'white',
+        borderRadius: 15,
+        padding: 10,
         marginHorizontal: 16
     },
 

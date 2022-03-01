@@ -1,9 +1,8 @@
 import { useState, useEffect } from "react";
-import { StyleSheet, View, Text, TouchableOpacity, FlatList, AppState } from "react-native";
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import { StyleSheet, View, Text, TouchableOpacity, FlatList } from "react-native";
 import 'react-native-get-random-values';
 import { v4 as uuidv4 } from 'uuid';
-import { mynancePurple, saveItems, retrieveItems } from "../../utils";
+import { mynancePurple } from "../../utils";
 import Transaction from "../../TransactionsClass";
 
 import BalanceView from "./BalanceView";
@@ -11,19 +10,6 @@ import AddTransaction from "../AddTransaction/AddTransaction";
 import ListItem from "./ListItem";
 
 export default function HomeScreen() {
-    useEffect(() => {
-      AppState.addEventListener("change", async() => {
-        const currentState = AppState.currentState;
-
-        if(currentState === "inactive") {
-          await saveItems();
-        } else if(currentState === "active") {
-          setTransactions(await retrieveItems());
-        }
-
-      })
-    });
-
     const [modalVisible, setModalVisible] = useState(false);
     const [transactions, setTransactions] = useState([]);
 
@@ -31,10 +17,10 @@ export default function HomeScreen() {
       return previousValue += currentValue.amount;
     }, 0)
 
-    const addTransaction = (title, amount, description) => {
+    const addTransaction = (title, amount, category) => {
       const transactionsCopy = transactions.slice();
 
-      const newTransaction = new Transaction(title, description, amount, uuidv4());
+      const newTransaction = new Transaction(title, category, amount, uuidv4());
       transactionsCopy.push(newTransaction);
 
       setTransactions(transactionsCopy);
@@ -53,7 +39,7 @@ export default function HomeScreen() {
     );
 
     return (
-      <View>
+      <View >
         <View style={styles.upperContainer}>
           <BalanceView balance={totalBalance}/>
 

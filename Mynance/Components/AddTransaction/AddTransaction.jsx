@@ -1,5 +1,4 @@
 import Modal from "react-native-modal";
-import GestureRecognizer from "react-native-swipe-gestures";
 import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
 
 import AddTransactionForm from "./AddTransactionForm";
@@ -26,9 +25,7 @@ const Header = ({ setModalVisible }) => {
 
 export default function AddTransaction({ modalVisible, setModalVisible, addTransaction }) {
     return (
-      <GestureRecognizer style={{flex: 1}} onSwipeDown={() => setModalVisible(false)}>
-
-        <Modal isVisible={modalVisible} onBackdropPress={() => setModalVisible(false)} style={{flexDirection: "row"}}>
+      <Modal isVisible={modalVisible} onBackdropPress={() => setModalVisible(false)} style={{flexDirection: "row"}}>
           <View style={styles.container}>
             <Header setModalVisible={setModalVisible}/>
 
@@ -36,8 +33,6 @@ export default function AddTransaction({ modalVisible, setModalVisible, addTrans
 
           </View>
         </Modal>
-
-      </GestureRecognizer>
     );
 }
 

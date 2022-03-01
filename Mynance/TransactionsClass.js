@@ -1,8 +1,8 @@
 export default class Transaction {
-    constructor(title, description, amount, id) {
+    constructor(title, category, amount, id) {
         this.title = title;
-        this.description = description;
+        this.category = category;
         this.amount = amount;
         this.id = id
-    }
+    };
 }
