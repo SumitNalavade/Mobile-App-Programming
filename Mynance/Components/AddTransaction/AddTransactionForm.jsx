@@ -1,26 +1,49 @@
+import { useState } from "react";
 import { StyleSheet ,View, TextInput, TouchableOpacity, Text, KeyboardAvoidingView, Keyboard, TouchableWithoutFeedback } from "react-native";
 import { mynancePurple } from "../../utils";
 
-export default function AddTransactionForm() {
+export default function AddTransactionForm({ addTransaction }) {
+    const [title, setTitle] = useState(null);
+    const [amount, setAmount] = useState(null);
+    const [description, setDescription] = useState("");
+    
+    const validateFields = () => {
+        if(!title) {
+            alert("Title is required");
+            return false
+        } else if (!amount) {
+            alert("Amount is required");
+            return false
+        }
+
+        return true
+    }
+
     return (
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
             <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "height"} style={styles.container}>
                     <View style={styles.innerContainer}>
                         <Text style={styles.headingLabel}>Title</Text>
-                        <TextInput style={[ styles.textInput, {height: 30 , borderRadius: 10, textAlign: "center", fontSize: 20}]} />
+                        <TextInput onChangeText={(evt) => setTitle(evt.trim())} style={[ styles.textInput, {height: 30 , borderRadius: 10, textAlign: "center", fontSize: 20}]} />
                     </View>
 
                     <View style={styles.innerContainer}>
                         <Text style={styles.headingLabel}>Amount</Text>
-                        <TextInput keyboardType="number-pad" returnKeyType="done"  placeholder="0.00" style={[ styles.textInput ,{height: 60 , borderRadius: 15, textAlign: "center", fontSize: 35}]} />
+                        <TextInput onChangeText={(evt) => setAmount(parseFloat(evt.trim()))} keyboardType="number-pad" returnKeyType="done"  placeholder="0.00" style={[ styles.textInput ,{height: 60 , borderRadius: 15, textAlign: "center", fontSize: 35}]} />
                     </View>
 
                     <View style={styles.innerContainer}>
                         <Text style={styles.headingLabel} >Description</Text>
-                        <TextInput returnKeyType="done" multiline={true} style={[ styles.textInput, {height: 150, borderRadius: 15, padding: 20, textAlign: "center"}]} />
+                        <TextInput onChangeText={(evt) => setDescription(evt.trim())} returnKeyType="done" multiline={true} style={[ styles.textInput, {height: 150, borderRadius: 15, padding: 20, textAlign: "center"}]} />
                     </View>
                     
-                    <TouchableOpacity style={styles.submitButton}>
+                    <TouchableOpacity onPress={() => {
+                        if(validateFields()) {
+                            return addTransaction(title, amount, description);
+                        }
+
+                        return
+                    }} style={styles.submitButton}>
                         <Text style={styles.submitButtonText}>Add Transaction</Text>
                     </TouchableOpacity>
             </KeyboardAvoidingView>
@@ -71,7 +94,7 @@ const styles = StyleSheet.create({
         flex: 1,
         width: "100%",
         margin: 20,
-        justifyContent: "space-evenly",
+        justifyContent: "center",
         alignItems: "center"
     },
 

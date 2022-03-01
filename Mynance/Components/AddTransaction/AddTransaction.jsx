@@ -24,7 +24,7 @@ const Header = ({ setModalVisible }) => {
   )
 }
 
-export default function AddTransaction({ modalVisible, setModalVisible }) {
+export default function AddTransaction({ modalVisible, setModalVisible, addTransaction }) {
     return (
       <GestureRecognizer style={{flex: 1}} onSwipeDown={() => setModalVisible(false)}>
 
@@ -32,7 +32,7 @@ export default function AddTransaction({ modalVisible, setModalVisible }) {
           <View style={styles.container}>
             <Header setModalVisible={setModalVisible}/>
 
-            <AddTransactionForm />
+            <AddTransactionForm addTransaction={addTransaction} />
 
           </View>
         </Modal>
