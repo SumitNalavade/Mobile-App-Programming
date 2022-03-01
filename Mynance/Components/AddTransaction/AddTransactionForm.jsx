@@ -7,7 +7,7 @@ export default function AddTransactionForm({ addTransaction }) {
     const [title, setTitle] = useState(null);
     const [amount, setAmount] = useState(null);
     const [category, setCategory] = useState('Unknown');
-    
+    const [type, setType] = useState('Unknown');
     
     const validateFields = () => {
         if(!title) {
@@ -18,6 +18,9 @@ export default function AddTransactionForm({ addTransaction }) {
             return false
         } else if(category === "Unknown") {
             alert("Select a category");
+            return false
+        } else if(type === "Unknown") {
+            alert("Selet a type");
             return false
         }
 
@@ -38,7 +41,6 @@ export default function AddTransactionForm({ addTransaction }) {
                     </View>
 
                     <View style={styles.innerContainer}>
-                        <Text style={styles.headingLabel}>Category</Text>
                         <Picker
                             selectedValue={category}
                             onValueChange={(value, index) => setCategory(value)}
@@ -57,10 +59,23 @@ export default function AddTransactionForm({ addTransaction }) {
 
                         </Picker>
                     </View>
+
+                    
+                    <View style={styles.innerContainer}>
+                        <Picker
+                            selectedValue={type}
+                            onValueChange={(value, index) => setType(value)}
+                            mode="dropdown" // Android only
+                            style={styles.picker} >
+                            <Picker.Item label="Please select a category" value="Unknown" />
+                            <Picker.Item label="Expense" value="Expense" />
+                            <Picker.Item label="Income" value="Income" />
+                        </Picker>
+                    </View>
                     
                     <TouchableOpacity onPress={() => {
                         if(validateFields()) {
-                            return addTransaction(title, amount, category);
+                            return addTransaction(title, amount, category, type);
                         }
 
                         return
@@ -84,7 +99,7 @@ const styles = StyleSheet.create({
         width: "100%",
         textAlign: "center",
         fontSize: 22,
-        marginVertical: 10,
+        marginTop: 10,
 
         fontWeight: "bold",
         color: mynancePurple
@@ -127,6 +142,5 @@ const styles = StyleSheet.create({
 
     picker: {
         width: "100%",
-        padding: 10
       },
 })

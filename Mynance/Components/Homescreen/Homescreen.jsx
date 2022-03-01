@@ -14,13 +14,17 @@ export default function HomeScreen() {
     const [transactions, setTransactions] = useState([]);
 
     const totalBalance = transactions.filter((transaction) => transaction.amount).reduce((previousValue, currentValue) => {
-      return previousValue += currentValue.amount;
+        if(currentValue.type === "Income") {
+          return previousValue += currentValue.amount;
+        }
+
+        return previousValue -= currentValue.amount;
     }, 0)
 
-    const addTransaction = (title, amount, category) => {
+    const addTransaction = (title, amount, category, type) => {
       const transactionsCopy = transactions.slice();
 
-      const newTransaction = new Transaction(title, category, amount, uuidv4());
+      const newTransaction = new Transaction(title, category, amount, uuidv4(), type);
       transactionsCopy.push(newTransaction);
 
       setTransactions(transactionsCopy);
@@ -67,7 +71,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-around",
 
-    height: "40%"
+    height: "40%",
+    marginBottom: 20
   },
 
   transactionButton: {
