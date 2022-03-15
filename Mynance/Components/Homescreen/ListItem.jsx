@@ -4,10 +4,8 @@ import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
 import {mynancePurple} from "../../utils";
 
 
-export default function ListItem({ transaction, deleteTransaction }) {
+export default function ListItem({ transaction, deleteTransaction, navigateToInfo }) {
     const { title, category, amount, id, type } = transaction;
-
-    console.log(type);
 
     const Icon = () => {
       switch(category) {
@@ -59,7 +57,7 @@ export default function ListItem({ transaction, deleteTransaction }) {
 
     return (
         <Swipeable renderLeftActions={leftSwipe}>
-            <TouchableOpacity style={styles.item}>
+            <TouchableOpacity style={styles.item} onPress={() => navigateToInfo(transaction)}>
               <View style={{width: "10%"}}>
                 <Icon />
               </View>

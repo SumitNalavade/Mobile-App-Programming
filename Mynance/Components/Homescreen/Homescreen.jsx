@@ -9,7 +9,7 @@ import BalanceView from "./BalanceView";
 import AddTransaction from "../AddTransaction/AddTransaction";
 import ListItem from "./ListItem";
 
-export default function HomeScreen() {
+export default function HomeScreen({ navigation }) {
     const [modalVisible, setModalVisible] = useState(false);
     const [transactions, setTransactions] = useState([]);
 
@@ -38,9 +38,13 @@ export default function HomeScreen() {
 
     const renderItem = ({ item }) => (
       <View style={{marginVertical: 10}}>
-        <ListItem  transaction={item} deleteTransaction={deleteTransaction} />
+        <ListItem  transaction={item} deleteTransaction={deleteTransaction} navigateToInfo={navigateToInfo} />
       </View>
     );
+
+    const navigateToInfo = (transaction) => {
+      return navigation.navigate("Info",  { transaction: { ...transaction }})
+    }
 
     return (
       <View >

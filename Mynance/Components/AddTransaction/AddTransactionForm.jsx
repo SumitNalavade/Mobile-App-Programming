@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { StyleSheet ,View, TextInput, TouchableOpacity, Text, KeyboardAvoidingView, Keyboard, TouchableWithoutFeedback } from "react-native";
+import { StyleSheet ,View, TextInput, TouchableOpacity, Text, Keyboard, TouchableWithoutFeedback } from "react-native";
 import { Picker } from "@react-native-picker/picker";
 import { mynancePurple } from "../../utils";
 
-export default function AddTransactionForm({ addTransaction }) {
+export default function AddTransactionForm({ addTransaction, setModalVisible }) {
     const [title, setTitle] = useState(null);
     const [amount, setAmount] = useState(null);
     const [category, setCategory] = useState('Unknown');
@@ -29,15 +29,15 @@ export default function AddTransactionForm({ addTransaction }) {
 
     return (
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-            <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "height"} style={styles.container}>
+            <View style={styles.container}>
                     <View style={styles.innerContainer}>
                         <Text style={styles.headingLabel}>Title</Text>
-                        <TextInput onChangeText={(evt) => setTitle(evt.trim())} style={[ styles.textInput, {height: 30 , borderRadius: 10, textAlign: "center", fontSize: 20}]} />
+                        <TextInput onChangeText={(evt) => setTitle(evt.trim())} style={[ styles.textInput]} />
                     </View>
 
                     <View style={styles.innerContainer}>
                         <Text style={styles.headingLabel}>Amount</Text>
-                        <TextInput onChangeText={(evt) => setAmount(parseFloat(evt.trim()))} keyboardType="number-pad" returnKeyType="done"  placeholder="0.00" style={[ styles.textInput ,{height: 60 , borderRadius: 15, textAlign: "center", fontSize: 35}]} />
+                        <TextInput onChangeText={(evt) => setAmount(parseFloat(evt.trim()))} keyboardType="number-pad" returnKeyType="done"  placeholder="0.00" style={[ styles.textInput ]} />
                     </View>
 
                     <View style={styles.innerContainer}>
@@ -75,14 +75,15 @@ export default function AddTransactionForm({ addTransaction }) {
                     
                     <TouchableOpacity onPress={() => {
                         if(validateFields()) {
-                            return addTransaction(title, amount, category, type);
+                            addTransaction(title, amount, category, type);
+                            return setModalVisible(false);
                         }
 
                         return
                     }} style={styles.submitButton}>
                         <Text style={styles.submitButtonText}>Add Transaction</Text>
                     </TouchableOpacity>
-            </KeyboardAvoidingView>
+            </View>
         </TouchableWithoutFeedback>
 
     )
@@ -92,7 +93,12 @@ const styles = StyleSheet.create({
     textInput: {
         width: "90%",
         borderWidth: 1,
-        borderColor: "lightgray"
+        borderColor: "lightgray",
+        marginVertical: 10,
+        height: 40,
+        borderRadius: 10,
+        textAlign: "center",
+        fontSize: 30
     },
 
     headingLabel: {
@@ -142,5 +148,5 @@ const styles = StyleSheet.create({
 
     picker: {
         width: "100%",
-      },
+    },
 })

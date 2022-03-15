@@ -29,7 +29,7 @@ export default function AddTransaction({ modalVisible, setModalVisible, addTrans
           <View style={styles.container}>
             <Header setModalVisible={setModalVisible}/>
 
-            <AddTransactionForm addTransaction={addTransaction} />
+            <AddTransactionForm addTransaction={addTransaction} isVisible={modalVisible} setModalVisible={setModalVisible}/>
 
           </View>
         </Modal>
