@@ -1,8 +1,8 @@
 import Foundation
 
 enum TransactionType {
-    case increase
-    case decrease
+    case expense
+    case income
 }
 
 enum TransactionError: Error {
@@ -13,9 +13,11 @@ enum TransactionError: Error {
 struct Transaction {
     var balanceChangeAmt: Double
     var transactionType: TransactionType
+    var description: String?
     
-    init(balanceChangeAmt: Double, transactionType: TransactionType) {
+    init(balanceChangeAmt: Double, transactionType: TransactionType, description: String?) {
         self.balanceChangeAmt = balanceChangeAmt
         self.transactionType = transactionType
+        self.description = description
     }
 }

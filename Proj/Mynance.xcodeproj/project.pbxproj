@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B4689C812802A68C000B0E6F /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4689C802802A68C000B0E6F /* Transaction.swift */; };
+		B4689C8B28033A17000B0E6F /* NewTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4689C8A28033A17000B0E6F /* NewTransactionViewController.swift */; };
 		E2151AF527FF6308007FB676 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2151AF427FF6308007FB676 /* AppDelegate.swift */; };
 		E2151AF727FF6308007FB676 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2151AF627FF6308007FB676 /* SceneDelegate.swift */; };
 		E2151AF927FF6308007FB676 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2151AF827FF6308007FB676 /* ViewController.swift */; };
@@ -39,6 +40,7 @@
 
 /* Begin PBXFileReference section */
 		B4689C802802A68C000B0E6F /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		B4689C8A28033A17000B0E6F /* NewTransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTransactionViewController.swift; sourceTree = "<group>"; };
 		E2151AF127FF6308007FB676 /* Mynance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mynance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2151AF427FF6308007FB676 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E2151AF627FF6308007FB676 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 				E2151AFF27FF6309007FB676 /* LaunchScreen.storyboard */,
 				E2151B0227FF6309007FB676 /* Info.plist */,
 				B4689C802802A68C000B0E6F /* Transaction.swift */,
+				B4689C8A28033A17000B0E6F /* NewTransactionViewController.swift */,
 			);
 			path = Mynance;
 			sourceTree = "<group>";
@@ -271,6 +274,7 @@
 				E2151B2927FF705D007FB676 /* UserClass.swift in Sources */,
 				E2151B2527FF6862007FB676 /* HomepageViewController.swift in Sources */,
 				B4689C812802A68C000B0E6F /* Transaction.swift in Sources */,
+				B4689C8B28033A17000B0E6F /* NewTransactionViewController.swift in Sources */,
 				E2151AF927FF6308007FB676 /* ViewController.swift in Sources */,
 				E2151AF527FF6308007FB676 /* AppDelegate.swift in Sources */,
 				E2151AF727FF6308007FB676 /* SceneDelegate.swift in Sources */,

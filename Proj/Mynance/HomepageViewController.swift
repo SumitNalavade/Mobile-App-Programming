@@ -19,6 +19,10 @@ class HomepageViewController: UIViewController {
         super.viewDidLoad()
         
         balanceView.layer.cornerRadius = 20
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        print(user?.transactions)
         balanceLabel.text = "$\(user!.balance)"
         
         dateLabel.text = getDate()
@@ -31,6 +35,19 @@ class HomepageViewController: UIViewController {
         dateFormatter.dateStyle = .long
         
         return dateFormatter.string(from: date)
+    }
+    
+    @IBAction func addTransactionButtonTapped(_ sender: Any) {
+        performSegue(withIdentifier: "newTransactionSegue", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "newTransactionSegue" {
+            
+            let newTransactionViewController = segue.destination as! NewTransactionViewController
+            
+            newTransactionViewController.user = self.user
+        }
     }
     
 

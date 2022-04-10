@@ -126,16 +126,23 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="bb2-9Q-dfa"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Fy8-FH-qZZ"/>
+                    <navigationItem key="navigationItem" id="Fy8-FH-qZZ">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Rd8-nD-LcP">
+                            <connections>
+                                <action selector="addTransactionButtonTapped:" destination="F72-kT-9ST" id="sog-eW-BeR"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="balanceLabel" destination="lCy-xs-P25" id="KlC-jM-BfA"/>
                         <outlet property="balanceView" destination="rzU-K4-JS6" id="vuh-cb-Thl"/>
                         <outlet property="dateLabel" destination="eXA-0G-sJp" id="vYN-IO-hdi"/>
+                        <segue destination="Gzf-Mk-L5U" kind="show" identifier="newTransactionSegue" id="uo1-QC-JTJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZCF-9E-RLH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1631.8840579710147" y="-512.27678571428567"/>
+            <point key="canvasLocation" x="1665" y="-794"/>
         </scene>
         <!--Self-->
         <scene sceneID="VMy-vW-8CI">
@@ -200,6 +207,65 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dv8-0x-vXp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="938" y="-512"/>
+        </scene>
+        <!--New Transaction View Controller-->
+        <scene sceneID="dsY-6G-WGd">
+            <objects>
+                <viewController id="Gzf-Mk-L5U" customClass="NewTransactionViewController" customModule="Mynance" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VRd-X6-gcc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="44" translatesAutoresizingMaskIntoConstraints="NO" id="h0i-n0-YJ6">
+                                <rect key="frame" x="100" y="76" width="214" height="203"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Transaction" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1cf-oi-jHH">
+                                        <rect key="frame" x="0.0" y="0.0" width="214" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0.00" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OxN-fD-9jP">
+                                        <rect key="frame" x="0.0" y="64.5" width="214" height="63.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                    </textField>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="C6F-qg-EXq">
+                                        <rect key="frame" x="0.0" y="172" width="214" height="32"/>
+                                        <segments>
+                                            <segment title="Expense"/>
+                                            <segment title="Income"/>
+                                            <segment title="Transfer"/>
+                                        </segments>
+                                    </segmentedControl>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="klP-26-6iU">
+                                <rect key="frame" x="151" y="406" width="112" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Add Transaction"/>
+                                <connections>
+                                    <action selector="addTransactionButtonTapped:" destination="Gzf-Mk-L5U" eventType="touchUpInside" id="uPa-jm-zHe"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="YpK-ec-Ugt" firstAttribute="trailing" secondItem="h0i-n0-YJ6" secondAttribute="trailing" constant="100" id="Afk-Xq-Iz6"/>
+                            <constraint firstItem="h0i-n0-YJ6" firstAttribute="top" secondItem="YpK-ec-Ugt" secondAttribute="top" constant="20" id="IRn-ml-mih"/>
+                            <constraint firstItem="h0i-n0-YJ6" firstAttribute="leading" secondItem="YpK-ec-Ugt" secondAttribute="leading" constant="100" id="hbM-GN-Ttr"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="YpK-ec-Ugt"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="DnB-4S-3z7"/>
+                    <connections>
+                        <outlet property="transactionAmtTextField" destination="OxN-fD-9jP" id="fJj-YA-vgG"/>
+                        <outlet property="transactionTypeControl" destination="C6F-qg-EXq" id="Ogg-L4-qwT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="18O-uq-nWh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1673.913043478261" y="-154.01785714285714"/>
         </scene>
     </scenes>
     <resources>
