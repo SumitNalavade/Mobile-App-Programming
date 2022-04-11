@@ -22,7 +22,6 @@ class HomepageViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        print(user?.transactions)
         balanceLabel.text = "$\(user!.balance)"
         
         dateLabel.text = getDate()
