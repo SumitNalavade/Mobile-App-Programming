@@ -62,16 +62,11 @@ class HomepageViewController: UIViewController {
 }
 
 
-
-
-
-extension HomepageViewController: UITableViewDelegate {
+extension HomepageViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
     }
-}
-
-extension HomepageViewController: UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return (user?.transactions.count)!
     }
@@ -86,4 +81,22 @@ extension HomepageViewController: UITableViewDataSource {
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .delete
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if(editingStyle == .delete) {
+            let deletedTransaction = user?.transactions[indexPath.row]
+            user?.removeTransaction(transaction: deletedTransaction!)
+            balanceLabel.text = "$\(user!.balance)"
+
+            tableView.beginUpdates()
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            tableView.endUpdates()
+        }
+    }
+    
+    
 }

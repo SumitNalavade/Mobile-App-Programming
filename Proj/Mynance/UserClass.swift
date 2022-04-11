@@ -38,4 +38,24 @@ class User {
             return balance -= balanceChangeAmount
         }
     }
+    
+    func removeTransaction(transaction: Transaction) {
+        //Find index of transaction in transaction array
+        var transactionIndex: Int?
+        for (index, element) in self.transactions.enumerated() {
+            if(element.id == transaction.id) {
+                transactionIndex = index
+                break
+            }
+        }
+        self.transactions.remove(at: transactionIndex!)
+        
+        //Apply the balance change amount in the opposite way
+        if(transaction.transactionType == TransactionType.income) {
+            self.balance -= transaction.balanceChangeAmt
+        } else if (transaction.transactionType == TransactionType.expense) {
+            self.balance += transaction.balanceChangeAmt
+        }
+        
+    }
 }

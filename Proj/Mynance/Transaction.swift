@@ -14,6 +14,8 @@ struct Transaction {
     var balanceChangeAmt: Double
     var transactionType: TransactionType
     var description: String
+        
+    let id: UUID = UUID() 
     
     init(balanceChangeAmt: Double, transactionType: TransactionType, description: String) {
         self.balanceChangeAmt = balanceChangeAmt

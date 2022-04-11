@@ -55,7 +55,7 @@ class NewTransactionViewController: UIViewController {
         }
         
         let newTransaction = Transaction(balanceChangeAmt: transactionAmt, transactionType: transactionType, description: transactionDescription)
-        
+                
         return newTransaction
     }    
 }
