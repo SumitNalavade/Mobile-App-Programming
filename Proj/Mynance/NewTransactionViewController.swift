@@ -12,6 +12,7 @@ class NewTransactionViewController: UIViewController {
     
     @IBOutlet weak var transactionAmtTextField: UITextField!
     @IBOutlet weak var transactionTypeControl: UISegmentedControl!
+    @IBOutlet weak var descriptionTextField: UITextField!
     
     var user: User?
     
@@ -39,6 +40,7 @@ class NewTransactionViewController: UIViewController {
     
     func createTransaction() throws -> Transaction {
         let transactionAmt = Double(transactionAmtTextField.text!)!
+        let transactionDescription = descriptionTextField.text!
         let transactionType : TransactionType
         
         let transactionTypeControlValue = transactionTypeControl.titleForSegment(at: transactionTypeControl.selectedSegmentIndex)!
@@ -52,7 +54,7 @@ class NewTransactionViewController: UIViewController {
             throw TransactionError.invalidTransactionType
         }
         
-        let newTransaction = Transaction(balanceChangeAmt: transactionAmt, transactionType: transactionType, description: nil)
+        let newTransaction = Transaction(balanceChangeAmt: transactionAmt, transactionType: transactionType, description: transactionDescription)
         
         return newTransaction
     }    

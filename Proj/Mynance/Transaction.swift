@@ -13,9 +13,9 @@ enum TransactionError: Error {
 struct Transaction {
     var balanceChangeAmt: Double
     var transactionType: TransactionType
-    var description: String?
+    var description: String
     
-    init(balanceChangeAmt: Double, transactionType: TransactionType, description: String?) {
+    init(balanceChangeAmt: Double, transactionType: TransactionType, description: String) {
         self.balanceChangeAmt = balanceChangeAmt
         self.transactionType = transactionType
         self.description = description

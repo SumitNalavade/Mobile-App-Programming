@@ -8,10 +8,16 @@
 
 import UIKit
 
+class TableViewCell: UITableViewCell {
+    @IBOutlet weak var transactionDescriptionLabel: UILabel!
+    @IBOutlet weak var transactionAmtLabel: UILabel!
+}
+
 class HomepageViewController: UIViewController {
     @IBOutlet weak var balanceView: UIView!
     @IBOutlet weak var balanceLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var tableView: UITableView!
     
     var user: User?
     
@@ -19,12 +25,21 @@ class HomepageViewController: UIViewController {
         super.viewDidLoad()
         
         balanceView.layer.cornerRadius = 20
+        
+        tableView.delegate = self
+        tableView.dataSource = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
         balanceLabel.text = "$\(user!.balance)"
         
         dateLabel.text = getDate()
+        
+        self.tableView.reloadData()
+    }
+    
+    @IBAction func addTransactionButtonTapped(_ sender: Any) {
+        performSegue(withIdentifier: "newTransactionSegue", sender: nil)
     }
     
     func getDate() -> String {
@@ -36,10 +51,6 @@ class HomepageViewController: UIViewController {
         return dateFormatter.string(from: date)
     }
     
-    @IBAction func addTransactionButtonTapped(_ sender: Any) {
-        performSegue(withIdentifier: "newTransactionSegue", sender: nil)
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "newTransactionSegue" {
             
@@ -48,16 +59,31 @@ class HomepageViewController: UIViewController {
             newTransactionViewController.user = self.user
         }
     }
-    
+}
 
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+
+
+
+extension HomepageViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
     }
-    */
+}
 
+extension HomepageViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return (user?.transactions.count)!
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
+        
+        let transaction = user?.transactions[indexPath.row]
+        
+        cell.transactionDescriptionLabel.text = transaction!.description
+        cell.transactionAmtLabel.text = "$\(transaction!.balanceChangeAmt)"
+        
+        return cell
+    }
 }
