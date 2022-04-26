@@ -20,6 +20,7 @@ class HomepageViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var user: User?
+    var selectedTransaction: Transaction?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,6 +58,10 @@ class HomepageViewController: UIViewController {
             let newTransactionViewController = segue.destination as! NewTransactionViewController
             
             newTransactionViewController.user = self.user
+        } else if(segue.identifier == "SegueToTransactionView") {
+            let transactionViewController = segue.destination as! TransactionViewController
+            
+            transactionViewController.transaction = self.selectedTransaction
         }
     }
 }
@@ -64,7 +69,8 @@ class HomepageViewController: UIViewController {
 
 extension HomepageViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        self.selectedTransaction = user?.transactions[indexPath.row]
+        performSegue(withIdentifier: "SegueToTransactionView", sender: nil)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -77,7 +83,14 @@ extension HomepageViewController: UITableViewDelegate, UITableViewDataSource {
         let transaction = user?.transactions[indexPath.row]
         
         cell.transactionDescriptionLabel.text = transaction!.description
-        cell.transactionAmtLabel.text = "$\(transaction!.balanceChangeAmt)"
+        
+        if(transaction?.transactionType == TransactionType.expense) {
+            cell.transactionAmtLabel.text = " - $\(transaction!.balanceChangeAmt)"
+            cell.transactionAmtLabel.textColor = .red
+        } else if(transaction?.transactionType == TransactionType.income) {
+            cell.transactionAmtLabel.text = " + $\(transaction!.balanceChangeAmt)"
+            cell.transactionAmtLabel.textColor = .green
+        }
         
         return cell
     }

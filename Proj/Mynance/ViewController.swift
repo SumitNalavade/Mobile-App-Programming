@@ -44,6 +44,5 @@ class ViewController: UIViewController {
             homepageViewController.user = user
         }
     }
-
 }
 

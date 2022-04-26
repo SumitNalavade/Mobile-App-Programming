@@ -26,6 +26,9 @@ class NewTransactionViewController: UIViewController {
         } catch  {
             print("Error")
         }
+        
+        self.navigationController?.popViewController(animated: true)
+        
     }
     
     func addTransaction(transaction: Transaction) throws {
@@ -57,5 +60,5 @@ class NewTransactionViewController: UIViewController {
         let newTransaction = Transaction(balanceChangeAmt: transactionAmt, transactionType: transactionType, description: transactionDescription)
                 
         return newTransaction
-    }    
+    }
 }
