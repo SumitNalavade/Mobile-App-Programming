@@ -35,7 +35,9 @@ class NewTransactionViewController: UIViewController {
         do {
             try user?.addTransaction(transaction: transaction)
         } catch TransactionError.overdraft {
-            print("Overdraft Error")
+            let alert = UIAlertController(title: "Overdraft Error", message: "You do not have the funds to complete the transaction", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
         } catch {
             print("Unspecified Error")
         }

@@ -1,22 +1,12 @@
 import Foundation
 
 class User {
-    var name: String
-    var email: String
-    var address: String
     var balance: Double
     var transactions: [Transaction]
     
-    init(name: String, email: String, address: String, balance: Double, transactions: [Transaction]) {
-        self.name = name
-        self.email = email
-        self.address = address
+    init(balance: Double, transactions: [Transaction]) {
         self.balance = balance
         self.transactions = transactions
-    }
-    
-    var description: String {
-        return "\(name): $\(balance)"
     }
     
     func addTransaction(transaction: Transaction) throws {

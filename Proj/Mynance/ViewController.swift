@@ -24,7 +24,7 @@ class ViewController: UIViewController {
         let password = passwordTextField.text!
         
         if(validateLogin(username: username, password: password)) {
-            let currentUser = User(name: "Sumit Nalavade", email: "vs.nalavade2003@gmail.com", address: "Test Address", balance: 100, transactions: []) //Create a new user
+            let currentUser = User(balance: 100, transactions: []) //Create a new user
                        
             performSegue(withIdentifier: "loginSegue", sender: currentUser)
         }

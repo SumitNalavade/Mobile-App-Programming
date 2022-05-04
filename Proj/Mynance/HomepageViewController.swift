@@ -20,7 +20,6 @@ class HomepageViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var user: User?
-    var selectedTransaction: Transaction?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +28,9 @@ class HomepageViewController: UIViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
+        
+        let previousBalance = UserDefaults.standard.float(forKey: "Balance")
+        print(previousBalance)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -58,10 +60,6 @@ class HomepageViewController: UIViewController {
             let newTransactionViewController = segue.destination as! NewTransactionViewController
             
             newTransactionViewController.user = self.user
-        } else if(segue.identifier == "SegueToTransactionView") {
-            let transactionViewController = segue.destination as! TransactionViewController
-            
-            transactionViewController.transaction = self.selectedTransaction
         }
     }
 }
@@ -69,8 +67,7 @@ class HomepageViewController: UIViewController {
 
 extension HomepageViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.selectedTransaction = user?.transactions[indexPath.row]
-        performSegue(withIdentifier: "SegueToTransactionView", sender: nil)
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
